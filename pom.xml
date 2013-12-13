@@ -7,7 +7,7 @@
 	<url>http://dev.bukkit.org/bukkit-plugins/grief-prevention/</url>
 
     <properties>
-        <depend-dir>C:\dependencies</depend-dir>
+        <depend-dir>/var/lib/jenkins/dependencies</depend-dir>
         <!-- Versions of dependencies, just update the version numbers here -->
         <mc-ver>1.6.2</mc-ver>
         <bukkit-ver>R0.1</bukkit-ver>
@@ -79,9 +79,9 @@
     </dependencies>
 
 	<scm>
-		<connection>scm:git:git://github.com/Tux2/GriefPrevention.git</connection>
-		<developerConnection>scm:git:git@github.com:Tux2/GriefPrevention.git</developerConnection>
-		<url>https://github.com/Tux2/GriefPrevention</url>
+		<connection>scm:git:git://github.com/descention/GriefPrevention.git</connection>
+		<developerConnection>scm:git:git@github.com:descention/GriefPrevention.git</developerConnection>
+		<url>https://github.com/descention/GriefPrevention</url>
 		<tag>master</tag>
 	</scm>
 
