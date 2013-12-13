@@ -37,7 +37,7 @@
         <dependency>
             <groupId>com.bergerkiller.bukkit.mw</groupId>
             <artifactId>MyWorlds</artifactId>
-            <systemPath>${depend-dir}\MyWorlds-1.66.jar</systemPath>
+            <systemPath>${depend-dir}/MyWorlds-1.66.jar</systemPath>
             <version>1.66</version>
             <scope>system</scope>
             <optional>true</optional>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.frdfsnlght.transporter</groupId>
             <artifactId>Transporter</artifactId>
-            <systemPath>${depend-dir}\Transporter.jar</systemPath>
+            <systemPath>${depend-dir}/Transporter.jar</systemPath>
             <version>8.14</version>
             <scope>system</scope>
             <optional>true</optional>
