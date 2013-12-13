@@ -745,7 +745,7 @@ public class GriefPrevention extends JavaPlugin {
 	public boolean isHorse(Entity entitytest) {
 		try{
 			return entitytest instanceof Horse;
-		}catch(ClassNotFoundException){
+		}catch(ClassNotFoundException ex){
 			return false;
 		}
 
