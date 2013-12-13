@@ -70,8 +70,8 @@
         </dependency>
         
         <dependency>
-            <groupId>com.onarandombox</groupId>
-            <artifactId>MultiverseCore</artifactId>
+            <groupId>com.onarandombox.multiversecore</groupId>
+            <artifactId>Multiverse-Core</artifactId>
             <version>${mv-ver}</version>
             <scope>provided</scope>
             <optional>true</optional>
