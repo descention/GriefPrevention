@@ -94,6 +94,9 @@ public class GriefPrevention extends JavaPlugin {
 	// for convenience, a reference to the instance of this plugin
 	public static GriefPrevention instance;
 	private static Logger log = Logger.getLogger("Minecraft");
+	
+	private static Map<String,Boolean> versionCache = new HashMap();
+	
 	// how long to wait before deciding a player is staying online or staying
 	// offline, for notication messages
 	public static final int NOTIFICATION_SECONDS = 20;
@@ -748,18 +751,23 @@ public class GriefPrevention extends JavaPlugin {
 	}
 	
 	public boolean isMinVersion(String version){
-		String bukkitVersion = GriefPrevention.instance.getServer().getBukkitVersion().split("-")[0];
-		String splitBukkitVersion = bukkitVersion.split(".");
-		String splitCheckVersion = version.split(".");
-		boolean isMinVersion = true;
-		for(int level = 0; level < splitBukkitVersion.length && level < splitCheckVersion.length ;level++){
-			if(Integer.parseInt(splitBukkitVersion[level]) < Integer.parseInt(splitCheckVersion[level])){
-				isMinVersion = false;
-			}else if(Integer.parseInt(splitBukkitVersion[level]) > Integer.parseInt(splitCheckVersion[level])){
-				return isMinVersion;
+		if(!versionCache.isEmpty() && versionCache.containsKey(version) != null){
+			return versionCache[version];
+		}else{
+			String bukkitVersion = GriefPrevention.instance.getServer().getBukkitVersion().split("-")[0];
+			String splitBukkitVersion = bukkitVersion.split(".");
+			String splitCheckVersion = version.split(".");
+			boolean isMinVersion = true;
+			for(int level = 0; level < splitBukkitVersion.length && level < splitCheckVersion.length ;level++){
+				if(Integer.parseInt(splitBukkitVersion[level]) < Integer.parseInt(splitCheckVersion[level])){
+					isMinVersion = false;
+				}else if(Integer.parseInt(splitBukkitVersion[level]) > Integer.parseInt(splitCheckVersion[level])){
+					break;
+				}
 			}
+			versionCache.put(version,isMinVersion);
+			return isMinVersion;
 		}
-		return isMinVersion;
 	}
 
 	public boolean isHorse(Entity entitytest) {
