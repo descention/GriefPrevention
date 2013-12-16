@@ -753,8 +753,8 @@ public class GriefPrevention extends JavaPlugin {
 	}
 	
 	public boolean isMinVersion(String version){
-		if(!versionCache.isEmpty() && versionCache.containsKey(version) != null){
-			return versionCache[version];
+		if(!versionCache.isEmpty() && versionCache.containsKey(version)){
+			return versionCache.get(version);
 		}else{
 			String bukkitVersion = GriefPrevention.instance.getServer().getBukkitVersion().split("-")[0];
 			String[] splitBukkitVersion = bukkitVersion.split(".");
