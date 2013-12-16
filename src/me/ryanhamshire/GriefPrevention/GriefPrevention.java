@@ -23,6 +23,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Level;
@@ -755,8 +757,8 @@ public class GriefPrevention extends JavaPlugin {
 			return versionCache[version];
 		}else{
 			String bukkitVersion = GriefPrevention.instance.getServer().getBukkitVersion().split("-")[0];
-			String splitBukkitVersion = bukkitVersion.split(".");
-			String splitCheckVersion = version.split(".");
+			String[] splitBukkitVersion = bukkitVersion.split(".");
+			String[] splitCheckVersion = version.split(".");
 			boolean isMinVersion = true;
 			for(int level = 0; level < splitBukkitVersion.length && level < splitCheckVersion.length ;level++){
 				if(Integer.parseInt(splitBukkitVersion[level]) < Integer.parseInt(splitCheckVersion[level])){
