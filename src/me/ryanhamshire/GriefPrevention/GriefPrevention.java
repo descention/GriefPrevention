@@ -742,6 +742,26 @@ public class GriefPrevention extends JavaPlugin {
 
 	}
 
+	// 
+	public boolean isVersion(String version){
+		return GriefPrevention.instance.getServer().getBukkitVersion().startsWith(version);
+	}
+	
+	public boolean isMinVersion(String version){
+		String bukkitVersion = GriefPrevention.instance.getServer().getBukkitVersion().split("-")[0];
+		String splitBukkitVersion = bukkitVersion.split(".");
+		String splitCheckVersion = version.split(".");
+		boolean isMinVersion = true;
+		for(int level = 0; level < splitBukkitVersion.length && level < splitCheckVersion.length ;level++){
+			if(Integer.parseInt(splitBukkitVersion[level]) < Integer.parseInt(splitCheckVersion[level])){
+				isMinVersion = false;
+			}else if(Integer.parseInt(splitBukkitVersion[level]) > Integer.parseInt(splitCheckVersion[level])){
+				return isMinVersion;
+			}
+		}
+		return isMinVersion;
+	}
+
 	public boolean isHorse(Entity entitytest) {
 		try{
 			return entitytest instanceof Horse;
